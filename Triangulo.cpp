@@ -42,11 +42,12 @@ void Triangulo::setVertice3(Punto _v3) {
 
 // Otros metodos
 double Triangulo::perimetro() {
-    return v2.calculaDistancia(v1) + v3.calculaDistancia(v2) + v1.calculaDistancia(v3);
+    return (v2.calculaDistancia(v1) + v3.calculaDistancia(v2) + v1.calculaDistancia(v3));
 }
 
 double Triangulo::area() {
-    return (1.0/2.0)*(((v1.getX()*v2.getY()) + (v2.getX()*v3.getY()) + (v3.getX()*v1.getY())) + ((v1.getX()*v3.getY()) + (v3.getX()*v2.getY()) + (v2.getX()*v1.getY())));
+    // cambie la formula por otra de internet porque no daba jajaj
+    return abs((1.0/2.0)*((v3.getY()-v2.getY())*(v1.getX()-v2.getX())-(v3.getX()-v2.getX())*(v1.getY()-v2.getY())));
 }
 
 std::string Triangulo::str() {
